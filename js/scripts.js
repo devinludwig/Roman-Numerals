@@ -12,7 +12,7 @@ var convert = function(number) {
 
       if (number.length - index === 4) {
         one = "M";
-        five = "";
+        five = "<span>V</span>";
         ten = "";
 
       } else if (number.length - index === 3) {
@@ -29,9 +29,9 @@ var convert = function(number) {
         ten = "X";
       }
 
-      if (parseInt(number[index]) < 9 && parseInt(number[index]) > 4 && number.length === 4 && index === 0) {
+    /*  if (parseInt(number[index]) < 9 && parseInt(number[index]) > 4 && number.length === 4 && index === 0) {
         array.push((one).repeat(parseInt(number[index])));
-      } else if (parseInt(number[index]) < 9 && parseInt(number[index]) > 4) {
+      } else */ if (parseInt(number[index]) < 9 && parseInt(number[index]) > 4) {
         array.push(five);
         array.push((one).repeat(parseInt(number[index]) - 5));
       } else if (parseInt(number[index]) < 4) {
@@ -43,7 +43,6 @@ var convert = function(number) {
       }
     }
   return(array);
-  // alert(array);
 }
 
 
@@ -53,7 +52,6 @@ $(function() {
     event.preventDefault();
     $(".result").empty();
     var input = $("input").val();
-    // convert(input);
     $(".result").append((convert(input)).join(''));
   });
 });
